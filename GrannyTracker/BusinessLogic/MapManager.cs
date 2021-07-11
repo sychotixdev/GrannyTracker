@@ -59,7 +59,11 @@ namespace GrannyTracker.BusinessLogic
             int calculatedX = (int)((MemoryTracker.Instance.GrannyX - displayedFloor.TopLeftX) * 10);
             int calculatedZ = -1 * (int)((MemoryTracker.Instance.GrannyZ - displayedFloor.TopLeftZ) * 10);
 
-            g.DrawImage(Properties.Resources.GrannyFace, calculatedX, calculatedZ, 13.08f, 15f);
+
+            float grannyFaceWidth = 13.08f;
+            float grannyFaceHeight = 15f;
+
+            g.DrawImage(Properties.Resources.GrannyFace, calculatedX - grannyFaceWidth / 2, calculatedZ - grannyFaceHeight / 2, grannyFaceWidth, grannyFaceHeight);
 
             richTextBox.Text = MemoryTracker.Instance.DebugMessage + " calcX " + calculatedX + " calcZ " + calculatedZ;
         }
